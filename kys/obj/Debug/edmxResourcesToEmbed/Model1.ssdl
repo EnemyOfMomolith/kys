@@ -5,15 +5,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AgentTypeID" Type="int" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="AgentTypeID" Type="int" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="300" />
     <Property Name="INN" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="KPP" Type="varchar" MaxLength="9" />
     <Property Name="DirectorName" Type="nvarchar" MaxLength="100" />
     <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="255" />
-    <Property Name="Logo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Logo" Type="nvarchar(max)" />
     <Property Name="Priority" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AgentPriorityHistory">
@@ -81,11 +81,11 @@
     <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="ProductTypeID" Type="int" />
     <Property Name="ArticleNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar" MaxLength="100" />
     <Property Name="ProductionPersonCount" Type="int" />
     <Property Name="ProductionWorkshopNumber" Type="int" />
     <Property Name="MinCostForAgent" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="Image" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="ProductCostHistory">
     <Key>
@@ -263,7 +263,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProductSale_Agent">
+  <Association Name="FK_ProductSale_Agent1">
     <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
     <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
     <ReferentialConstraint>
@@ -275,7 +275,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProductSale_Product">
+  <Association Name="FK_ProductSale_Product1">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
     <ReferentialConstraint>
@@ -354,11 +354,11 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductMaterial" EntitySet="ProductMaterial" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+    <AssociationSet Name="FK_ProductSale_Agent1" Association="Self.FK_ProductSale_Agent1">
       <End Role="Agent" EntitySet="Agent" />
       <End Role="ProductSale" EntitySet="ProductSale" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+    <AssociationSet Name="FK_ProductSale_Product1" Association="Self.FK_ProductSale_Product1">
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductSale" EntitySet="ProductSale" />
     </AssociationSet>

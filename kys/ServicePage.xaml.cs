@@ -76,7 +76,35 @@ namespace kys
 
         private void ChangePriority_Click(object sender, RoutedEventArgs e)
         {
+            int max = 0;
+            foreach (Agent agent in ServiceListView.SelectedItems)
+            {
+                if (max < agent.Priority)
+                    max = agent.Priority;
 
+            }
+            PRW Window = new PRW(max);
+            Window.ShowDialog();
+            if (string.IsNullOrEmpty(Window.PriorityBox.Text))
+            {
+                return;
+            }
+            foreach (Agent AgentLV in ServiceListView.SelectedItems)
+            {
+                AgentLV.Priority = Convert.ToInt32(Window.PriorityBox.Text);
+            }
+            try
+            {
+                Ivanov_glazkiEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация обновлена");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+
+            }
+            UpdateAgents();
         }
 
         private void ServiceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

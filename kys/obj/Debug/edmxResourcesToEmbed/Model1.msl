@@ -5,8 +5,8 @@
       <EntityTypeMapping TypeName="Ivanov_glazkiModel.Agent">
         <MappingFragment StoreEntitySet="Agent">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="INN" ColumnName="INN" />
           <ScalarProperty Name="KPP" ColumnName="KPP" />
@@ -79,11 +79,11 @@
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
           <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="ProductionPersonCount" ColumnName="ProductionPersonCount" />
           <ScalarProperty Name="ProductionWorkshopNumber" ColumnName="ProductionWorkshopNumber" />
           <ScalarProperty Name="MinCostForAgent" ColumnName="MinCostForAgent" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

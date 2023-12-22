@@ -22,18 +22,6 @@ namespace kys
             this.ProductSale = new HashSet<ProductSale>();
             this.Shop = new HashSet<Shop>();
         }
-    
-        public int ID { get; set; }
-        public int AgentTypeID { get; set; }
-        public string Title { get; set; }
-        public string Address { get; set; }
-        public string INN { get; set; }
-        public string KPP { get; set; }
-        public string DirectorName { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Logo { get; set; }
-        public int Priority { get; set; }
 
         public int Sales
         {
@@ -54,7 +42,7 @@ namespace kys
                 int total = 0;
                 foreach (ProductSale productSale in this.ProductSale)
                 {
-                    total += productSale.ProductCount * 10000;
+                    total += productSale.ProductCount ;
                 }
                 int sale = 0;
                 if (total > 10000 && total < 50000)
@@ -92,8 +80,18 @@ namespace kys
                 }
             }
         }
-
-
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public int AgentTypeID { get; set; }
+        public string Address { get; set; }
+        public string INN { get; set; }
+        public string KPP { get; set; }
+        public string DirectorName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Logo { get; set; }
+        public int Priority { get; set; }
+    
         public virtual AgentType AgentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgentPriorityHistory> AgentPriorityHistory { get; set; }
@@ -101,7 +99,6 @@ namespace kys
         public virtual ICollection<ProductSale> ProductSale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop> Shop { get; set; }
-
         public string AgentTypeString
         {
             get

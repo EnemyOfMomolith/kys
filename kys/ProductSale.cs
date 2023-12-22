@@ -14,7 +14,6 @@ namespace kys
     
     public partial class ProductSale
     {
-
         public string ProductString
         {
             get

@@ -21,12 +21,12 @@ namespace kys
     public partial class AddSalePage : Page
     {
         private ProductSale currentProductSale = new ProductSale();
+        public List<Product> currentProduct = new List<Product>(Ivanov_glazkiEntities.GetContext().Product.ToList());
         Agent currentAgent;
         public AddSalePage(Agent SelectedAgent)
         {
             InitializeComponent();
             currentAgent = SelectedAgent;
-            var currentProduct = Ivanov_glazkiEntities.GetContext().Product.ToList();
             ProductsComboBox.ItemsSource = currentProduct;
             DataContext = currentProductSale;
         }
@@ -34,14 +34,24 @@ namespace kys
         private void ProductsComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             ProductsComboBox.IsDropDownOpen = true;
-            var currentProduct = Ivanov_glazkiEntities.GetContext().Product.ToList();
             currentProduct = currentProduct.Where(p => p.Title.ToLower().Contains(ProductsComboBox.Text.ToLower())).ToList();
             ProductsComboBox.ItemsSource = currentProduct;
         }
 
         private void SaveSaleButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentProduct = Ivanov_glazkiEntities.GetContext().Product.ToList();
+            StringBuilder error = new StringBuilder();
+            if (ProductsComboBox.SelectedItem == null)
+                error.AppendLine("Не выбран продукт");
+            if(Convert.ToInt32(ProductCount.Text) == 0 )
+                error.AppendLine("Введите корректное количество продукта");
+            if (ProductSaleDate.SelectedDate == null)
+                error.AppendLine("Введите корректную дату!");
+            if (error.Length > 0)
+            {
+                MessageBox.Show(error.ToString());
+                return;
+            }
             currentProductSale.ID = 0;
             currentProductSale.AgentID = currentAgent.ID;
             currentProductSale.ProductID = currentProduct[ProductsComboBox.SelectedIndex].ID;

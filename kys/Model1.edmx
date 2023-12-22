@@ -10,15 +10,15 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AgentTypeID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AgentTypeID" Type="int" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="300" />
           <Property Name="INN" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="KPP" Type="varchar" MaxLength="9" />
           <Property Name="DirectorName" Type="nvarchar" MaxLength="100" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
-          <Property Name="Logo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Logo" Type="nvarchar(max)" />
           <Property Name="Priority" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="AgentPriorityHistory">
@@ -86,11 +86,11 @@
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ProductTypeID" Type="int" />
           <Property Name="ArticleNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
           <Property Name="ProductionPersonCount" Type="int" />
           <Property Name="ProductionWorkshopNumber" Type="int" />
           <Property Name="MinCostForAgent" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Image" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ProductCostHistory">
           <Key>
@@ -268,7 +268,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Agent">
+        <Association Name="FK_ProductSale_Agent1">
           <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -280,7 +280,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Product">
+        <Association Name="FK_ProductSale_Product1">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -359,11 +359,11 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductMaterial" EntitySet="ProductMaterial" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+          <AssociationSet Name="FK_ProductSale_Agent1" Association="Self.FK_ProductSale_Agent1">
             <End Role="Agent" EntitySet="Agent" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+          <AssociationSet Name="FK_ProductSale_Product1" Association="Self.FK_ProductSale_Product1">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
@@ -382,19 +382,19 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AgentTypeID" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgentTypeID" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KPP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="DirectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AgentType" Relationship="Self.FK_Agent_AgentType" FromRole="Agent" ToRole="AgentType" />
           <NavigationProperty Name="AgentPriorityHistory" Relationship="Self.FK_AgentPriorityHistory_Agent" FromRole="Agent" ToRole="AgentPriorityHistory" />
-          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Agent" FromRole="Agent" ToRole="ProductSale" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Agent1" FromRole="Agent" ToRole="ProductSale" />
           <NavigationProperty Name="Shop" Relationship="Self.FK_Shop_Agent" FromRole="Agent" ToRole="Shop" />
         </EntityType>
         <EntityType Name="AgentPriorityHistory">
@@ -462,15 +462,15 @@
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProductTypeID" Type="Int32" />
           <Property Name="ArticleNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ProductionPersonCount" Type="Int32" />
           <Property Name="ProductionWorkshopNumber" Type="Int32" />
           <Property Name="MinCostForAgent" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
           <NavigationProperty Name="ProductCostHistory" Relationship="Self.FK_ProductCostHistory_Product" FromRole="Product" ToRole="ProductCostHistory" />
           <NavigationProperty Name="ProductMaterial" Relationship="Self.FK_ProductMaterial_Product" FromRole="Product" ToRole="ProductMaterial" />
-          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Product" FromRole="Product" ToRole="ProductSale" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Product1" FromRole="Product" ToRole="ProductSale" />
         </EntityType>
         <EntityType Name="ProductCostHistory">
           <Key>
@@ -502,8 +502,8 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ProductCount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Agent" Relationship="Self.FK_ProductSale_Agent" FromRole="ProductSale" ToRole="Agent" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_ProductSale_Agent1" FromRole="ProductSale" ToRole="Agent" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product1" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -560,7 +560,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Agent">
+        <Association Name="FK_ProductSale_Agent1">
           <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -656,7 +656,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Product">
+        <Association Name="FK_ProductSale_Product1">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -694,7 +694,7 @@
             <End Role="Agent" EntitySet="Agent" />
             <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+          <AssociationSet Name="FK_ProductSale_Agent1" Association="Self.FK_ProductSale_Agent1">
             <End Role="Agent" EntitySet="Agent" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
@@ -726,7 +726,7 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductMaterial" EntitySet="ProductMaterial" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+          <AssociationSet Name="FK_ProductSale_Product1" Association="Self.FK_ProductSale_Product1">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
@@ -745,8 +745,8 @@
             <EntityTypeMapping TypeName="Ivanov_glazkiModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="INN" ColumnName="INN" />
                 <ScalarProperty Name="KPP" ColumnName="KPP" />
@@ -819,11 +819,11 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
                 <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ProductionPersonCount" ColumnName="ProductionPersonCount" />
                 <ScalarProperty Name="ProductionWorkshopNumber" ColumnName="ProductionWorkshopNumber" />
                 <ScalarProperty Name="MinCostForAgent" ColumnName="MinCostForAgent" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

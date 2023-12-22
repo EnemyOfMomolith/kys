@@ -15,18 +15,19 @@ namespace kys
     
     public partial class Ivanov_glazkiEntities : DbContext
     {
-        public Ivanov_glazkiEntities()
-            : base("name=Ivanov_glazkiEntities")
-        {
-        }
         private static Ivanov_glazkiEntities _context;
         public static Ivanov_glazkiEntities GetContext()
         {
             if (_context == null)
-                _context = new  Ivanov_glazkiEntities();
+                _context = new Ivanov_glazkiEntities();
             return _context;
         }
 
+        public Ivanov_glazkiEntities()
+            : base("name=Ivanov_glazkiEntities")
+        {
+        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

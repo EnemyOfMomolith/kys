@@ -31,3 +31,36 @@ C:\Users\Aw-areness\Desktop\Programms\3prog\kys\kys\obj\Debug\PRW.baml
 C:\Users\Aw-areness\Desktop\Programms\3prog\kys\kys\obj\Debug\ServicePage.baml
 C:\Users\Aw-areness\Desktop\Programms\3prog\kys\kys\obj\Debug\SalePage.baml
 C:\Users\Aw-areness\Desktop\Programms\3prog\kys\kys\obj\Debug\kys.csproj.CopyComplete
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\kys.exe.config
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\kys.exe
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\kys.pdb
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\EntityFramework.dll
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\EntityFramework.SqlServer.dll
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\EntityFramework.xml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\EntityFramework.SqlServer.xml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\bin\Debug\ru\EntityFramework.resources.dll
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.csproj.AssemblyReference.cache
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\AddEditPage.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\AddSalePage.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\MainWindow.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\PRW.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\SalePage.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\ServicePage.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\App.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys_Content.g.cs
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys_MarkupCompile.cache
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys_MarkupCompile.lref
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\App.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\AddEditPage.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\AddSalePage.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\MainWindow.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\PRW.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\SalePage.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\ServicePage.baml
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.g.resources
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.Properties.Resources.resources
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.csproj.GenerateResource.cache
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.csproj.CoreCompileInputs.cache
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.csproj.CopyComplete
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.exe
+D:\3 курс\ИСП 3121\Иванов\3проект\kys\obj\Debug\kys.pdb
